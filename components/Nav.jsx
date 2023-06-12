@@ -76,7 +76,7 @@ const Nav = () => {
                             src={session?.user.image}
                             width={37}
                             height={37}
-                            className='rounded-full'
+                            className='rounded-full cursor-pointer'
                             alt='profile'
                             onClick={() => setToggleDropdown((prev) => !prev)} //Never good to directly change state. Use previous in another callback function
                         />
@@ -84,7 +84,7 @@ const Nav = () => {
                         {toggleDropdown && (
                             <div className="dropdown">
                                 <Link 
-                                    href="/profle"
+                                    href="/profile"
                                     className='dropdown_link'
                                     onClick={() => setToggleDropdown(false)}
                                 >
