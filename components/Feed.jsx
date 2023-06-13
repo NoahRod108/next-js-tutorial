@@ -19,23 +19,48 @@ const PromptCardList = ({ data, handleTagClick }) => {
 
 const Feed = () => {
     const [searchText, setSearchText] = useState('');
-    const [posts, setPosts] = useState([])
+    const [searchTimeout, setSearchTimeout] = useState(null);
+    const [searchResults, setSearchResults] = useState([]);
+    const [posts, setPosts] = useState([]);
 
-    const handleSearchChange = (e) => {
+    const fetchPosts = async () => {
+        const res = await fetch('/api/prompt');
+        const data = await res.json();
 
+        setPosts(data);
     }
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            const res = await fetch('/api/prompt');
-            const data = await res.json();
-
-            setPosts(data);
-        }
-
         fetchPosts();
     }, []);
     
+    // Search
+    const handleSearchChange = (e) => {
+        clearTimeout(searchTimeout);
+        setSearchText(e.target.value);
+
+        setSearchTimeout(
+            setTimeout(() => {
+                const searchResult = filterPrompts(e.target.value);
+                console.log(searchResult);
+                setSearchResults(searchResult);
+            }, 500)
+        );
+    }
+
+    // Filter prompts
+    const filterPrompts = (searchText) => {
+        const regex = new RegExp(searchText, "i");
+
+        return posts.filter(
+            (item) =>
+                regex.test(item.creator.username) ||
+                regex.test(item.tag) ||
+                regex.test(item.prompt)
+        )
+    }
+
+    // Click tag
 
   return (
     <section className="feed">
@@ -50,10 +75,18 @@ const Feed = () => {
         />
         </form>
 
-        <PromptCardList
-            data={posts}
-            handleTagClick={() => {}}
-        />
+        {searchText ? (
+            <PromptCardList
+                data={searchResults}
+                handleTagClick={() => {}}
+            />
+        ) :
+        (
+            <PromptCardList
+                data={posts}
+                handleTagClick={() => {}}
+            />
+        )}
     </section>
   )
 }
