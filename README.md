@@ -6,7 +6,7 @@ This is a test project from JavaScript Mastery on YouTube. This is a project to 
 
 - [x] #tag clickable to find similar posts
 - [x] Usernames clickable to navigate to the user profile
-- [x]] Search bar functional
+- [x] Search bar functional
 - [] Loading icon
 - [] Edit profile
 
