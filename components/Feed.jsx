@@ -42,7 +42,6 @@ const Feed = () => {
         setSearchTimeout(
             setTimeout(() => {
                 const searchResult = filterPrompts(e.target.value);
-                console.log(searchResult);
                 setSearchResults(searchResult);
             }, 500)
         );
@@ -61,6 +60,12 @@ const Feed = () => {
     }
 
     // Click tag
+    const handleTagClick = (tagName) => {
+        setSearchText(tagName);
+
+        const searchResult = filterPrompts(tagName);
+        setSearchResults(searchResult);
+    }
 
   return (
     <section className="feed">
@@ -78,13 +83,13 @@ const Feed = () => {
         {searchText ? (
             <PromptCardList
                 data={searchResults}
-                handleTagClick={() => {}}
+                handleTagClick={handleTagClick}
             />
         ) :
         (
             <PromptCardList
                 data={posts}
-                handleTagClick={() => {}}
+                handleTagClick={handleTagClick}
             />
         )}
     </section>
