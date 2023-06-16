@@ -19,10 +19,14 @@ const MyProfile = () => {
         }
 
         if(session?.user.id) fetchPosts();
-    }, []);
+    }, [session]);
 
     const handleEdit = (post) =>{
-        router.push(`/update-prompt?id=${post._id}`)
+        router.push(`/update-prompt?id=${post._id}`);
+    }
+
+    const handleEditProfile = () =>{
+        router.push(`/update-profile?id=${session?.user.id}`);
     }
 
     const handleDelete = async (post) =>{
@@ -49,6 +53,7 @@ const MyProfile = () => {
         desc="Welcome to your profile page."
         data={posts}
         handleEdit={handleEdit}
+        handleEditProfile={handleEditProfile}
         handleDelete={handleDelete}
     />
   )

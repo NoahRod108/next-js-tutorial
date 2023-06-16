@@ -22,7 +22,6 @@ const EditPrompt = () => {
         }
 
         if(promptId) getPromptDetails();
-        console.log(post);
     },[promptId])
 
     const updatePrompt = async (e) =>{
