@@ -16,8 +16,9 @@ const UpdateProfile = () => {
             const res = await fetch(`/api/users/${userId}/profile`);
             const data = await res.json();
             setUsername({
-                prompt: data.username,
+                username: data.username,
             })
+            console.log(username);
         }
 
         if(userId) getPromptDetails();
@@ -27,15 +28,14 @@ const UpdateProfile = () => {
         e.preventDefault();
         setSubmitting(true);
 
-        if(!userId) return alert("Prompt ID not found");
+        if(!userId) return alert("User ID not found");
 
         // Call API and pass option param that conatins our post obj.
         try {
             const res = await fetch(`/api/users/${userId}/profile`, {
                 method: 'PATCH',
                 body: JSON.stringify({
-                    prompt: post.prompt,
-                    tag: post.tag
+                    username: username.username,
                 })
             })
 
@@ -53,7 +53,7 @@ const UpdateProfile = () => {
     <ProfileForm 
         type="Edit"
         user={username}
-        setPost={setUsername}
+        setUser={setUsername}
         submitting={submitting}
         handleSubmit={updateUser}
     />
