@@ -4,14 +4,14 @@ This is a test project from JavaScript Mastery on YouTube. This is a project to 
 
 ## Video Features
 
-* #tag clickable to find similar posts
-* Usernames clickable to navigate to the user profile
-* Search bar (functional)
-* Create users
-* Create Posts
-** Edit Post
-** Delete Post
-* Post feed
+- #tag clickable to find similar posts
+- Usernames clickable to navigate to the user profile
+- Search bar (functional)
+- Create users
+- Create Posts
+  - Edit Post
+  - Delete Post
+- Post feed
       
 ## Coming Features - Added by me
 
