@@ -9,11 +9,11 @@ This is a test project from JavaScript Mastery on YouTube. This is a project to 
 * Search bar (functional)
 * Create users
 * Create Posts
- * Edit Post
- * Delete Post
+** Edit Post
+** Delete Post
 * Post feed
       
-## Coming Features
+## Coming Features - Added by me
 
 - [x] Edit profile
 - [ ] Loading icons
