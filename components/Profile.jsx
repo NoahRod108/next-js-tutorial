@@ -8,11 +8,16 @@ const Profile = ({ name, desc, data, handleEditProfile, handleEdit, handleDelete
             <span className="blue_gradient">{name} Profile</span>
         </h1>
         <p className="desc text-left">{desc}</p>
-        {handleEditProfile && (
-            <div className='w-full mt-6'>
-                <p className="outline_btn w-32 cursor-pointer text-left" onClick={handleEditProfile}>Edit Profile</p>
+        <div className='w-full mt-6 flex justify-between'>
+            {handleEditProfile && (
+                    <p className="outline_btn w-32 cursor-pointer text-left" onClick={handleEditProfile}>Edit Profile</p>
+            )}
+            <div className="flex">
+                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl">20 Followers</p>
+                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl">10 Following</p>
             </div>
-        )}
+        </div>
+
 
         <div className="mt-10 prompt_layout">
             {data.length > 0 ? data.map((post) => (
