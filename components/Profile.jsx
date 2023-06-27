@@ -1,6 +1,6 @@
 import PromptCard from "./PromptCard";
 
-const Profile = ({ name, desc, data, handleEditProfile, handleEdit, handleDelete }) => {
+const Profile = ({ name, desc, data, follows, handleEditProfile, handleEdit, handleDelete }) => {
 
   return (
     <section className="w-full">
@@ -13,8 +13,9 @@ const Profile = ({ name, desc, data, handleEditProfile, handleEdit, handleDelete
                     <p className="outline_btn w-32 cursor-pointer text-left" onClick={handleEditProfile}>Edit Profile</p>
             )}
             <div className="flex">
-                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl">20 Followers</p>
-                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl">10 Following</p>
+                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl cursor-pointer hover:underline"><span onClick={() => ({})}>
+                    {console.log(follows)} Followers</span></p>
+                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl cursor-pointer hover:underline"><span onClick={() => ({})}>10 Following</span></p>
             </div>
         </div>
 

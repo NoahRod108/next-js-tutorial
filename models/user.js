@@ -14,7 +14,11 @@ const UserSchema = new Schema({
     },
     image: {
         type: String
-    }
+    },
+    follows: {
+        following: [Number],
+        followers: [Number]
+    },
 });
 
 const User = models.User || model("User", UserSchema);
