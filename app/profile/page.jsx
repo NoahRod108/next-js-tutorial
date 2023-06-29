@@ -23,7 +23,7 @@ const MyProfile = () => {
             const res = await fetch(`/api/users/${session?.user.id}/profile`);
             const data = await res.json();
 
-            setFollows(data);
+            setFollows(data.follows);
         }
 
         if(session?.user.id) fetchPosts();

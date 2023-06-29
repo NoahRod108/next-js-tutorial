@@ -13,9 +13,16 @@ const Profile = ({ name, desc, data, follows, handleEditProfile, handleEdit, han
                     <p className="outline_btn w-32 cursor-pointer text-left" onClick={handleEditProfile}>Edit Profile</p>
             )}
             <div className="flex">
-                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl cursor-pointer hover:underline"><span onClick={() => ({})}>
-                    {console.log(follows)} Followers</span></p>
-                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl cursor-pointer hover:underline"><span onClick={() => ({})}>10 Following</span></p>
+                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl cursor-pointer hover:underline">
+                    <span onClick={() => ({})}>
+                        {follows.followers?.length} Followers
+                    </span>
+                </p>
+                <p className="mx-4 text-lg text-gray-600 sm:text-xl max-w-2xl cursor-pointer hover:underline">
+                    <span onClick={() => ({})}>
+                        {follows.following?.length} Following
+                    </span>
+                </p>
             </div>
         </div>
 

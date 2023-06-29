@@ -7,6 +7,7 @@ import Profile from "@components/Profile";
 const UserProfile = ({ params }) => {
     const searchParams = useSearchParams();
     const [posts, setPosts] = useState([]);
+    const [follows, setFollows] = useState([]);
     const userName = searchParams.get("name")
 
     useEffect(() => {
@@ -17,7 +18,15 @@ const UserProfile = ({ params }) => {
             setPosts(data);
         }
 
+        const fetchFollows = async () => {
+            const res = await fetch(`/api/users/${params?.id}/profile`);
+            const data = await res.json();
+
+            setFollows(data);
+        }
+
         if(params?.id) fetchPosts();
+        if(params?.id) fetchFollows();
     }, []);
 
   return (
@@ -25,6 +34,7 @@ const UserProfile = ({ params }) => {
         name={userName}
         desc={`Welcome to ${userName}'s profile.`}
         data={posts}
+        follows={follows}
     />
   )
 }
