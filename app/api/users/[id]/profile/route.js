@@ -18,7 +18,7 @@ export const GET = async (req, { params }) => {
 
 // PATCH
 export const PATCH = async (req, { params }) => {
-    const { username } = await req.json();
+    const { username, follows } = await req.json();
 
     try {
         await connectToDB();
@@ -28,6 +28,7 @@ export const PATCH = async (req, { params }) => {
         if(!existingUser) return new Response("User not found", { status: 404 });
 
         existingUser.username = username;
+        existingUser.follows = [...follows];
 
         await existingUser.save();
 

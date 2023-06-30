@@ -1,11 +1,17 @@
 import PromptCard from "./PromptCard";
+import Image from 'next/image';
 
-const Profile = ({ name, desc, data, follows, handleEditProfile, handleEdit, handleDelete }) => {
+const Profile = ({ name, desc, data, follows, handleEditProfile, handleEdit, handleDelete, handleFollow }) => {
 
   return (
     <section className="w-full">
         <h1 className="head_text text-left">
-            <span className="blue_gradient">{name} Profile</span>
+            <span className="blue_gradient">
+                {name} Profile
+                {handleFollow &&
+                    <Image src="/assets/icons/follow.svg" alt="Follow Button" width={30} height={30} className='object-contain mt-4 cursor-pointer hover:scale-110' />
+                }
+            </span>
         </h1>
         <p className="desc text-left">{desc}</p>
         <div className='w-full mt-6 flex justify-between'>
