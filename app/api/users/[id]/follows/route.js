@@ -18,21 +18,21 @@ export const GET = async (req, { params }) => {
 
 // PATCH
 export const PATCH = async (req, { params }) => {
-    const { username } = await req.json();
+    const { following } = await req.json();
 
     try {
         await connectToDB();
 
-        const existingUser = await User.findById(params.id);
+        const existingUser = await User.findById(following);
 
         if(!existingUser) return new Response("User not found", { status: 404 });
 
-        existingUser.username = username;
+        existingUser.following = [...existingUser.following, params.id];
 
         await existingUser.save();
 
         return new Response(JSON.stringify(existingUser), { status: 200 });
     } catch (error) {
-        return new Response("Username already exists!", { status: 500 });
+        return new Response("Failed to update user", { status: 500 });
     }
 }

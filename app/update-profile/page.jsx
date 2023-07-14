@@ -12,16 +12,17 @@ const UpdateProfile = () => {
     const [username, setUsername] = useState({username: ""});
 
     useEffect(() => {
-        const getPromptDetails = async () => {
+        const getUserDetails = async () => {
             const res = await fetch(`/api/users/${userId}/profile`);
             const data = await res.json();
             setUsername({
                 username: data.username,
             })
-            console.log(username);
+            
+            console.log(data);
         }
 
-        if(userId) getPromptDetails();
+        if(userId) getUserDetails();
     },[userId])
 
     const updateUser = async (e) =>{

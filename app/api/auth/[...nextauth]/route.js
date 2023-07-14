@@ -43,7 +43,6 @@ const handler = NextAuth({
                         email: profile.email,
                         username: userNameExists ? profile.name.replace(/\s/g, "").toLowerCase() + getRandomInt(5) : profile.name.replace(/\s/g, "").toLowerCase(),
                         image: profile.picture,
-                        followers: [],
                         following: []
                     });
                 }
