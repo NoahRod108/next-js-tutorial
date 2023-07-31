@@ -32,5 +32,5 @@ This is a test project from JavaScript Mastery on YouTube. This is a project to 
 * Usernames can't be the same
   * FIXED - added numbers to the end of the username if the username already exists.
 
- *Can follow the same user multiple times.
-   *This is an issue with the model not restricting the 'following' array to be unique.
+ * Can follow the same user multiple times.
+   * This is an issue with the model not restricting the 'following' array to be unique.
