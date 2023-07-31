@@ -10,7 +10,7 @@ const Profile = ({ name, desc, data, follows, handleEditProfile, handleEdit, han
 
     const handleFollowingClick = () => {
         // Route to see your following
-        if(data[0].creator._id === session?.user.id) return router.push('/following');
+        if(data[0].creator._id === session?.user.id) return router.push(`/following/${session?.user.id}`);
 
         // Route to view other users following
         return router.push(`/following/${data[0].creator._id}`);

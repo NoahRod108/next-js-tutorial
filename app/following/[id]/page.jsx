@@ -1,9 +1,13 @@
-import React from 'react'
+import FollowFeed from '@components/FollowFeed';
 
-const userFollowingPage = () => {
+const myFollowingPage = ({ params }) => {
   return (
-    <div>userFollowingPage</div>
+    <section className='w-full flex-center flex-col'>
+        <FollowFeed 
+            user={params?.id}
+        />
+    </section>
   )
 }
 
-export default userFollowingPage
+export default myFollowingPage
