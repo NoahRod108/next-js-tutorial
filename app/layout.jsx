@@ -1,5 +1,6 @@
 import '@styles/globals.css';
 import Nav from '@components/Nav';
+import SideNav from '@components/SideNav';
 import Provider from '@components/Provider';
 
 export const metadata = {
@@ -10,16 +11,14 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-        <body>
+        <body className="flex">
             <Provider>
-                <div className="main">
-                    <div className="gradient" />
-                </div>
+              <SideNav />
 
-                <main className="app">
-                    <Nav />
-                    {children}
-                </main>
+              <main className="app">
+                <Nav />
+                {children}
+              </main>
             </Provider>
         </body>
     </html>
