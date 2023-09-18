@@ -14,29 +14,7 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  padding: 120px 24px 160px 24px;
   pointer-events: none;
-}
-
-.main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
-  position: absolute;
-  content: "";
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  top: 0;
-}
-
-.main:after {
-  content: "";
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  opacity: 0.4;
-  filter: invert(1);
 }
 
 @media screen and (max-width: 640px) {
@@ -48,7 +26,7 @@
 /* Tailwind Styles */
 
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+  @apply relative z-10 flex items-center flex-col max-w-7xl mx-20 flex-auto;
 }
 
 .black_btn {
@@ -63,14 +41,6 @@
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
 }
 
-.orange_gradient {
-  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
-}
-
-.green_gradient {
-  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
-}
-
 .blue_gradient {
   @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
 }
@@ -80,7 +50,7 @@
 }
 
 .search_input {
-  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full max-w-lg rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .copy_btn {
@@ -91,13 +61,9 @@
   @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
 }
 
-.prompt_layout {
-  @apply space-y-6 py-8;
-}
-
 /* Feed Component */
 .feed {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+  @apply mt-16 mx-auto w-full flex justify-center items-center flex-col gap-2;
 }
 
 /* Form Component */
@@ -111,42 +77,31 @@
 
 /* Side Nav */
 .sidebar {
-  @apply w-[272px] h-full bg-white p-4 transition-all ease-linear delay-150 shadow-xl
+  @apply w-[272px] h-full bg-white p-4 transition-all ease-linear delay-150 shadow-lg;
 }
 
 .sidebar_top {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #fff;
+  @apply w-full flex items-center py-4 border-b border-solid border-gray-300;
 }
 
 .sidebar_logo {
-  object-fit: cover;
+  @apply object-cover;
+}
+
+.sidebar_list {
+  @apply my-4 pb-4 border-b border-solid border-gray-300;
 }
 
 .sidebar_link {
-  display: inline-block;
-  padding: 0.8rem 1rem;
-  display: flex;
-  background-color: #f6f6f6;
-  margin-bottom: 1rem;
-  border-radius: 0.8rem;
+  @apply flex px-4 py-3 bg-[#f3f3f3] rounded-xl hover:bg-black hover:text-white;
 }
 
 .sidebar_wrapper {
-  position: relative;
+  @apply relative max-md:hidden;
 }
 
 .sidebar_btn {
-  position: absolute;
-  right: 0;
-  top: 4rem;
-  background: #fff;
-  width: 1.5rem;
-  height: 1.5rem;
+  @apply absolute -right-4 top-[4.5rem] bg-[#f3f3f3] p-2 rounded-full;
 }
 
 /* Nav Component */
@@ -155,7 +110,7 @@
 }
 
 .dropdown {
-  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg border border-black bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end z-20;
 }
 
 .dropdown_link {
@@ -164,7 +119,7 @@
 
 /* PromptCard Component */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 w-full h-fit;
 }
 
 .flex-center {
@@ -184,7 +139,7 @@
 }
 
 [data-collapse="true"] {
-  width: 6rem;
+  width: 8rem;
 }
 [data-collapse="true"] .sidebar_name {
   display: none;
