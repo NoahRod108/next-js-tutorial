@@ -41,7 +41,7 @@ const Profile = ({ name, desc, data, follows, handleEditProfile, handleEdit, han
         </div>
 
 
-        <div className="mt-10 prompt_layout">
+        <div className="mt-10 feed">
             {data.length > 0 ? data.map((post) => (
                 <PromptCard
                     key={post._id}

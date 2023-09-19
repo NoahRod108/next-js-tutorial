@@ -42,7 +42,7 @@
 }
 
 .blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-secondary-purple to-primary-purple bg-clip-text text-transparent;
 }
 
 .desc {
@@ -101,7 +101,7 @@
 }
 
 .sidebar_btn {
-  @apply absolute -right-4 top-[4.5rem] bg-[#f3f3f3] p-2 rounded-full;
+  @apply absolute -right-4 top-[2.5rem] bg-[#f3f3f3] p-2 rounded-full;
 }
 
 /* Nav Component */
@@ -141,6 +141,6 @@
 [data-collapse="true"] {
   width: 8rem;
 }
-[data-collapse="true"] .sidebar_name {
+[data-collapse="true"] .sidebar_hidden {
   display: none;
 }
