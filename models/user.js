@@ -15,11 +15,7 @@ const UserSchema = new Schema({
     image: {
         type: String
     },
-    following: {
-        type: [String],
-        unique: [true, "You already follow this account!"]
-    }
-});
+  });
 
 const User = models.User || model("User", UserSchema);
 

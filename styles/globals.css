@@ -81,7 +81,7 @@
 }
 
 .sidebar_top {
-  @apply w-full flex items-center py-4 border-b border-solid border-gray-300;
+  @apply w-full flex justify-center items-center py-4 border-b border-solid border-gray-300;
 }
 
 .sidebar_logo {
@@ -93,7 +93,7 @@
 }
 
 .sidebar_link {
-  @apply flex px-4 py-3 bg-[#f3f3f3] rounded-xl hover:bg-black hover:text-white;
+  @apply flex items-center px-4 py-3 bg-[#f3f3f3] rounded-xl hover:bg-black hover:text-white;
 }
 
 .sidebar_wrapper {
@@ -143,4 +143,7 @@
 }
 [data-collapse="true"] .sidebar_hidden {
   display: none;
+}
+[data-collapse="true"] .sidebar_list ul {
+  @apply items-center
 }

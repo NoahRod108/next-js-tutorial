@@ -41,9 +41,8 @@ const handler = NextAuth({
                 if(!userExists){
                     await User.create({
                         email: profile.email,
-                        username: userNameExists ? profile.name.replace(/\s/g, "").toLowerCase() + getRandomInt(5) : profile.name.replace(/\s/g, "").toLowerCase(),
+                        username: userNameExists ? profile.name.replace(/\s/g, "").toLowerCase() + getRandomInt(50) : profile.name.replace(/\s/g, "").toLowerCase(),
                         image: profile.picture,
-                        following: []
                     });
                 }
     

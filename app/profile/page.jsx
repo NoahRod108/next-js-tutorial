@@ -61,7 +61,6 @@ const MyProfile = () => {
         name="My"
         desc="Welcome to your profile page."
         data={posts}
-        follows={follows}
         handleEdit={handleEdit}
         handleEditProfile={handleEditProfile}
         handleDelete={handleDelete}
