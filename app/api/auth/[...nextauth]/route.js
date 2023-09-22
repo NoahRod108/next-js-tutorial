@@ -1,7 +1,9 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 import User from "@models/user";
 import { connectToDB } from "@utils/database";
+import bcrypt from "bcryptjs"
 
 connectToDB();
 
@@ -14,10 +16,36 @@ const handler = NextAuth({
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }),
+        CredentialsProvider({
+          id: "credentials",
+          name: "Credentials",
+          async authorize(credentials){
+            try {
+              const user = await User.findOne({email: credentials.email});
+              
+              if(user) {
+                // check password
+                const isPassCorrect = await bcrypt.compare(credentials.password, user.password);
+
+                if(isPassCorrect) {
+                  return user
+                }else{
+                  throw new Error("Wrong email or password!");
+                }
+              }else {
+                console.log(`${user} not found`)
+              }              
+            } catch (error) {
+              console.log(error)
+            }
+          }
         })
     ],
     callbacks: {
         async session({ session }){
+          console.log(session)
+
             const sessionUser = await User.findOne({
                 email: session.user.email
             })

@@ -17,9 +17,7 @@ const UpdateProfile = () => {
             const data = await res.json();
             setUsername({
                 username: data.username,
-            })
-            
-            console.log(data);
+            })            
         }
 
         if(userId) getUserDetails();

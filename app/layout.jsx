@@ -11,7 +11,7 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-        <body className="flex max-sm:flex-col w-full font-inter">
+        <body className="flex max-sm:flex-col w-full font-inter bg-[#f3f3f3]">
             <Provider>
               <SideNav />
 

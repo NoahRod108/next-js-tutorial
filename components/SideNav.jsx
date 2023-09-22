@@ -103,18 +103,12 @@ const SideNav = () => {
             </motion.ul>
           ):(
             <>
-              {providers &&
-                Object.values(providers).map((provider) => (
-                  <button 
-                      type='button'
-                      key={provider.name}
-                      onClick={() => signIn(provider.id)}
-                      className='black_btn w-full'
-                  >
-                      Sign In
-                  </button>
-                ))
-              }
+              <Link
+                className="black_btn"
+                href="/login"
+              >
+                Sign In
+              </Link>
             </>
           )}
         </div>
