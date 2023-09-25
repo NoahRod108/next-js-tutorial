@@ -23,11 +23,11 @@ const handler = NextAuth({
           async authorize(credentials){
             try {
               const user = await User.findOne({email: credentials.email});
-              
+
               if(user) {
                 // check password
                 const isPassCorrect = await bcrypt.compare(credentials.password, user.password);
-
+                
                 if(isPassCorrect) {
                   return user
                 }else{
@@ -44,8 +44,6 @@ const handler = NextAuth({
     ],
     callbacks: {
         async session({ session }){
-          console.log(session)
-
             const sessionUser = await User.findOne({
                 email: session.user.email
             })
@@ -55,7 +53,9 @@ const handler = NextAuth({
             return session;
         },
         async signIn({ profile }){
-            try {    
+            try {
+                if(profile === undefined) return true;
+
                 // Check if user exists
                 const userExists = await User.findOne({
                     email: profile.email

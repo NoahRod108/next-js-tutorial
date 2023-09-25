@@ -4,8 +4,8 @@ import SideNav from '@components/SideNav';
 import Provider from '@components/Provider';
 
 export const metadata = {
-    title: "promptopia",
-    description: "Discover & Share AI prompts"
+    title: "MyPost",
+    description: "Share your thoughts!"
 }
 
 const RootLayout = ({ children }) => {
