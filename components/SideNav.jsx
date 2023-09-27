@@ -70,7 +70,7 @@ const SideNav = () => {
           ):(
             <Link href="/" className='flex gap-2 flex-center'>
               <Image src="/assets/images/myPost2.PNG" alt="MyPost Logo" width={60} height={60} className='object-contain' />
-              <p className="logo_text">MyPost</p>
+              <p className="logo_text sidebar_hidden">MyPost</p>
             </Link>
           )}
         </motion.div>
