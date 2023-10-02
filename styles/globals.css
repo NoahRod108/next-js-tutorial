@@ -23,10 +23,14 @@
   }
 }
 
+.sidebar_list:hover .svg-white {
+  fill: #fff
+}
+
 /* Tailwind Styles */
 
 .app {
-  @apply relative z-10 flex items-center flex-col max-w-7xl mx-20 flex-auto;
+  @apply relative z-10 flex items-center flex-col max-w-7xl mx-20 max-sm:mx-4 flex-auto;
 }
 
 .black_btn {
@@ -97,7 +101,7 @@
 }
 
 .sidebar_link {
-  @apply flex items-center px-4 py-3 bg-[#f3f3f3] rounded-xl hover:bg-black hover:text-white;
+  @apply flex items-center px-4 py-3 bg-[#f3f3f3] rounded-xl hover:bg-[#e4e4e4];
 }
 
 .sidebar_wrapper {
