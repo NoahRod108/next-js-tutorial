@@ -42,12 +42,12 @@ const SideNav = () => {
   
   return (
     <div className="sidebar_wrapper">
-      <button 
+      {/* <button 
         className="sidebar_btn"
         onClick={() => setCollapsed((prev) => !prev)}
       >
         <Image src="/assets/icons/left-arrow.svg" alt="left-arrow" width={20} height={20} className='object-contain' />
-      </button>
+      </button> */}
 
       <aside 
         className="sidebar min-h-screen" 

@@ -67,7 +67,7 @@
 
 /* Feed Component */
 .feed {
-  @apply mt-16 mx-auto w-full flex justify-center items-center flex-col gap-2;
+  @apply my-16 mx-auto w-full flex justify-center items-center flex-col gap-2;
 }
 
 /* Form Component */
@@ -85,7 +85,7 @@
 
 /* Side Nav */
 .sidebar {
-  @apply w-[272px] h-full bg-white p-4 transition-all ease-linear delay-150 shadow-lg;
+  @apply sticky top-0 w-[272px] h-auto bg-white p-4 transition-all ease-linear delay-150 shadow-lg;
 }
 
 .sidebar_top {
@@ -109,7 +109,7 @@
 }
 
 .sidebar_btn {
-  @apply absolute -right-4 top-[2.5rem] bg-[#f3f3f3] p-2 rounded-full;
+  @apply absolute -right-4 top-[2.5rem] bg-[#f3f3f3] z-50 p-2 rounded-full;
 }
 
 /* Nav Component */
